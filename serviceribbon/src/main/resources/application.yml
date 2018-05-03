@@ -1,0 +1,12 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://gaobin:gaobin123@localhost:8081/eureka/
+server:
+  port: 8085
+spring:
+  application:
+    name: service-ribbon
+service2:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
