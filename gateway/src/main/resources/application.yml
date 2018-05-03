@@ -1,7 +1,7 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8081/eureka/
+      defaultZone: http://gaobin:gaobin123@localhost:8081/eureka/
 spring:
   application:
     name: gateway

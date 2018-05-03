@@ -13,6 +13,7 @@
         <module>service</module>
         <module>service2</module>
         <module>gateway</module>
+        <module>serviceribbon</module>
     </modules>
 
     <!-- spring cloud 配置 -->
