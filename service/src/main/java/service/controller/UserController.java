@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.entity.User;
 import service.repository.UserRepository;
+import service.security.AdminOnly;
 
 
 /**
@@ -20,6 +21,8 @@ import service.repository.UserRepository;
 @RestController
 @RequestMapping
 public class UserController {
+
+
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -40,6 +43,16 @@ public class UserController {
     public String serviceUrl(){
         InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka("SERVICE",false);
         return instanceInfo.getHomePageUrl();
+    }
+
+    /**
+     * 删除用户
+     * @return
+     */
+    @GetMapping("/delete-user")
+    @AdminOnly
+    public String deleteUser(){
+       return "success";
     }
 
 
