@@ -1,5 +1,6 @@
 package service.security;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -44,9 +45,17 @@ public class SecurityAspect {
     public void checkThisDemo(){
         System.out.println("####################-------thisDemo");
     }
-    @Pointcut("this(service.repository.UserRepository.save(..))")
-    public void securitySave(){
-        System.out.println("####################-------拦截保存的方法");
+
+    @Pointcut("execution(public * service.controller.UserController.serviceUrl(..))")
+    public void executionDemo(){
+        System.out.println("执行了添加用户的方法");
     }
+
+
+    @After("executionDemo()")
+    public void after(){
+
+    }
+
 
 }

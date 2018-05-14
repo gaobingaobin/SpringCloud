@@ -28,7 +28,7 @@ public class UserController {
     @Autowired
     EurekaClient eurekaClient;
     @GetMapping("/getUser/{id}")
-    public User getUserById(@PathVariable Long id){
+    public User getUserById(@PathVariable Long id) throws Exception{
        return userRepository.findOne(id);
    }
    @RequestMapping("/add")
@@ -37,6 +37,7 @@ public class UserController {
         user.setName("高彬");
         user.setUsername("user1");
         userRepository.save(user);
+       System.out.println("addUser");
         return  "success";
    }
     @GetMapping("/eureka-instance")
